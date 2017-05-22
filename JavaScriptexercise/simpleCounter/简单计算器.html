@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<title>简单计算器</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+  function count()
+    {
+		//获取第一个输入框的值
+		var num1=parseInt(document.getElementById("txt1").value);
+		//获取第二个输入框的值
+		var num2=parseInt(document.getElementById("txt2").value);
+		//获取选择框的值
+		var mychar=document.getElementById("select");
+		switch(mychar.value)
+		{
+			case "+":
+			  var result=num1+num2
+			  break;
+			case "-":
+			  var result=num1-num2
+			  break;
+			case "*":
+			  var result=num1*num2
+			  break;
+			case "/":
+			  var result=num1/num2
+			  break;
+		}
+		//设置结果输出框的值
+		document.getElementById("fruit").value=result;
+	}
+</script>
+
+</head>
+<body>
+<form>
+  <input type="text" id="txt1" />
+  <select id="select">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="text" id="txt2">
+  <input type="button" value="=" onClick="count()" />
+  <!--通过=按钮来调用创建的函数，得到结果-->
+  <input type="text" id="fruit">
+</form>
+
+
+
+</body>
+</html>
