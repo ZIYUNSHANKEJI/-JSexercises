@@ -1,9 +1,57 @@
 <!doctype html>
 <html>
 <head>
-<title>simpleCounter</title>
+<title>简单计算器</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+.shurukuang{width:800px;
+            height:50px;
+			padding:0;
+			margin:0;
+			font-size:30px;
+			vertical-align:middle;}
+.fuhao{width:100px;
+       height:25px;
+	   padding:0;
+	   margin:0;
+	   font-size:25px;}
+.dengyuhao{width:100px;
+           height:50px;
+		   padding:0;
+		   margin:0;}
+             
+.kuangjia1{width:800px;
+           height:50px;
+           padding:0;
+		   margin:0 auto;
+		   border:5px solid #0F3;
+	          
+          }
+.kuangjia2{width:695px;
+           height:50px;
+           padding:0;
+		   margin:0;
+		   font-size:30px;
+		   vertical-align:middle;
+		   
+	          
+          }
+
+	          
+          
+</style>
 <script type="text/javascript">
+  function   getRadioValue(operator) 
+ { 
+            var obj = document.getElementsByName(operator);  //这个是以标签的name来取控件
+                 for(i=0; i<obj.length;i++)    {
+
+                  if(obj[i].checked)    { 
+                          return   obj[i].value; 
+                  } 
+              }         
+             return "undefined";       
+} 
   function count()
     {
 		//获取第一个输入框的值
@@ -11,7 +59,8 @@
 		//获取第二个输入框的值
 		var num2=parseInt(document.getElementById("txt2").value);
 		//获取选择框的值
-		var mychar=document.getElementById("select");
+		var mychar=document.getElementById("select").operator;
+		
 		switch(mychar.value)
 		{
 			case "+":
@@ -34,19 +83,42 @@
 
 </head>
 <body>
-<form>
-  <input type="text" id="txt1" />
-  <select id="select">
+   <div style="font-size:30px; color:#F60; text-align:center; font-weight:bold">
+     小天使的简单计算器
+   </div>
+   
+  <div class="kuangjia1">
+  <input class="shurukuang" type="text" id="txt1" />
+  </div>
+  <div class="kuangjia1">
+  <form id="select">
+    <input type="radio" name="operator"  value="+"  class="fuhao" /><label class="fuhao">+</label>
+    <input type="radio" name="operator"  value="-"  class="fuhao" /><label class="fuhao">-</label>
+    <input type="radio" name="operator"  value="*"  class="fuhao" /><label class="fuhao">*</label>
+    <input type="radio" name="operator"  value="/"   class="fuhao"/><label class="fuhao">/</label>
+   <!-- 方法2：通过下拉菜单选择
+   <select id="select">
     <option value="+">+</option>
     <option value="-">-</option>
     <option value="*">*</option>
     <option value="/">/</option>
-  </select>
-  <input type="text" id="txt2">
-  <input type="button" value="=" onClick="count()" />
-  <!--通过=按钮来调用创建的函数，得到结果-->
-  <input type="text" id="fruit">
-</form>
+    </select>
+    -->
+  </form>
+  </div>
+  <div class="kuangjia1">
+  <input type="text" id="txt2" class="shurukuang">
+  </div>
+  <div class="kuangjia1">
+    <div style="float:left;">
+    <input type="button" value="=" onClick="count()" class="dengyuhao fuhao" />
+    <!--通过=按钮来调用创建的函数，得到结果-->
+    </div>
+    <div style="float:left;">
+    <input type="text" id="fruit" class="kuangjia2">
+    </div>
+  </div>
+
 
 
 
